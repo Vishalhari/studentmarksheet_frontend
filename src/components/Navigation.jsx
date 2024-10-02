@@ -63,20 +63,12 @@ const Navigation = () => {
 
           {
             isAuth ?
-            <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>:
+            <Nav.Link as={Link} to="/studentlist">Students</Nav.Link>:
             ''
           }
-          {
-            isAuth ?
-            <Nav.Link as={Link} to="/movies">Movies</Nav.Link>:
-            ''
-          }
+          
 
-          {
-            isAuth ?
-            <Nav.Link as={Link} to="/profile">Profile</Nav.Link>:
-            ''
-          }
+         
 
           {
             isAuth ? 
