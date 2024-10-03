@@ -1,8 +1,23 @@
-# React + Vite
+# Student Marksheet Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an application for adding marks of students and manage by registering and then login to application using api done in laravel
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+```
+
+Then
+
+## Api path
+
+add in constants/constants.jsx
+
+## Deployment
+
+```bash
+npm run dev
+```
+
+Then give url in browser then its works
