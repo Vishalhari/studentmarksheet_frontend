@@ -6,6 +6,7 @@ import Navigation from './Navigation'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import validator from 'validator';
 
 const Login = () => {
   const initalformdata={
@@ -39,6 +40,17 @@ const Login = () => {
       return;
     }
 
+    if (formdata.email.length >0) {
+      if (!validator.isEmail(formdata.email)) {
+        toast.error('Email is invalid Format.',{
+          position:'bottom-center'
+      })
+      return;
+      } 
+    }
+
+    
+
     try {
       axios.post('login',formdata,{
         headers:{
@@ -53,12 +65,20 @@ const Login = () => {
           axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access}`
 
           navigation('/dashboard')
+        } else if (res.status == 401) {
+          toast.error('Invalid Username Or Password.',{
+            position:'bottom-center'
+        })
+        } 
+      }).catch((err) => {
+        if (err.status == 401) {
+          toast.error('Invalid Username Or Password.',{
+            position:'bottom-center'
+        })
         }
       })
     } catch (error) {
-      toast.success("Username/Password Incorrect",{
-        position:'bottom-center'
-    });
+      console.log(error.response)
     }
 
   }
